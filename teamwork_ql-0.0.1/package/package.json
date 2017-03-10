@@ -1,0 +1,27 @@
+{
+  "name": "teamwork_ql",
+  "version": "0.0.1",
+  "description": "An easy to use API wrapper for Teamwork",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir build --presets=es2015 && babel ./index.uncompiled.js --out-file index.js --presets=es2015"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afreeland/teamworkQL.git"
+  },
+  "keywords": [
+    "Teamwork"
+  ],
+  "author": "Aaron Freeland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afreeland/teamworkQL/issues"
+  },
+  "homepage": "https://github.com/afreeland/teamworkQL#readme",
+  "dependencies": {
+    "graphql": "^0.9.0",
+    "humps": "^2.0.0"
+  }
+}

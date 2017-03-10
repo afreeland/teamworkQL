@@ -1,0 +1,28 @@
+mutation insertTask {
+  createTask(
+    tasklistId: "653158",
+    content: "Isaac Task",
+    description: "Some random description"
+  ) {
+    id
+    content
+    description
+  }
+}
+
+mutation markCompleted {
+  markTaskComplete(id:"5863222"){
+    id
+  }
+}
+mutation markUncompleted {
+  markTaskUncomplete(id:"5863222"){
+    id
+  }
+}
+
+mutation removeTask {
+  destroyTask(id:"5863222"){
+    id
+  }
+}

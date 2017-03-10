@@ -1,0 +1,92 @@
+# Get all tasks across all projects
+{
+  tasks{
+    id
+    content
+    description
+  }
+}
+
+# Get all tasks on a given task list
+{
+  tasks(apiType: "tasklist" id: "653158"){
+    id
+    content
+    description
+  }
+}
+
+# Get all tasks on a given project
+{
+  tasks(apiType: "projects" id: "190600"){
+    id
+    content
+    description
+    projectId
+  }
+}
+
+# How to sort, powered by enum for intellisense
+{
+  tasks(apiType: projects id: "190600" sort: dateadded ){
+    id
+    content
+    description
+    projectId
+    startDate
+    createdOn
+    hasPredecessors
+  }
+}
+
+# How to filter, powered by enum for intellisense
+{
+  tasks(apiType: projects id: "190600" sort: dateadded filter: nostartdate ){
+    id
+    content
+    description
+    projectId
+    startDate
+    createdOn
+    hasPredecessors
+  }
+}
+
+# Multiple Queries
+{
+  workload: tasks (apiType:tasklist id: "653158" sort:dateadded){
+    id,
+    content
+    description
+    creatorId
+  }
+  
+  peeps: people (apiType:person id:"145295") {
+      id
+      firstName
+      lastName
+    	emailAddress
+    }
+  
+}
+# Multiple Queries plus tasks loads in a sub-document for 'person', which is simply the resolver from people
+{
+  workload: tasks (apiType:tasklist id: "653158" sort:dateadded){
+    id,
+    content
+    description
+    creatorId
+    person {
+      firstName
+      lastName
+    }
+  }
+  
+  peeps: people (apiType:person id:"145295") {
+      id
+      firstName
+      lastName
+    	emailAddress
+    }
+  
+}
