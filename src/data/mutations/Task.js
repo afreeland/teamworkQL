@@ -62,7 +62,7 @@ const mutation = {
                 };
 
                 var createPromise = 
-                    axios.post($BASE + `/tasklists/${tasklistId}/tasks.json`, payload)
+                    axios.post(`/tasklists/${tasklistId}/tasks.json`, payload)
                         .then(function(res){
                             let data = res.data;
                             var _id = data.id;
@@ -87,7 +87,7 @@ const mutation = {
             },
             resolve: (source, { id }, { axios}) => {
                 var createPromise = 
-                    axios.put($BASE + `/tasks/${id}/complete.json`)
+                    axios.put(`/tasks/${id}/complete.json`)
                         .then(function(res){
                             var data = res.data;
                             return {
@@ -113,7 +113,7 @@ const mutation = {
             },
             resolve: (source, { id }, { axios }) => {
                 var createPromise = 
-                    axios.put($BASE + `/tasks/${id}/uncomplete.json`)
+                    axios.put(`/tasks/${id}/uncomplete.json`)
                         .then(function(res){
                             var data = res.data;
                             return {
@@ -139,7 +139,7 @@ const mutation = {
             },
             resolve: (source, { id }, { axios }) => {
                 var createPromise = 
-                    axios.delete($BASE + `/tasks/${id}.json`)
+                    axios.delete(`/tasks/${id}.json`)
                         .then(function(res){
                             var data = res.data;
                             return {

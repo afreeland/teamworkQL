@@ -67,7 +67,7 @@ var mutation = {
                 "todo-item": task
             };
 
-            var createPromise = axios.post($BASE + ('/tasklists/' + tasklistId + '/tasks.json'), payload).then(function (res) {
+            var createPromise = axios.post('/tasklists/' + tasklistId + '/tasks.json', payload).then(function (res) {
                 var data = res.data;
                 var _id = data.id;
                 var _affectedTaskIds = data.affectedTaskIds;
@@ -91,7 +91,7 @@ var mutation = {
             var id = _ref2.id;
             var axios = _ref3.axios;
 
-            var createPromise = axios.put($BASE + ('/tasks/' + id + '/complete.json')).then(function (res) {
+            var createPromise = axios.put('/tasks/' + id + '/complete.json').then(function (res) {
                 var data = res.data;
                 return {
                     id: id,
@@ -116,7 +116,7 @@ var mutation = {
             var id = _ref4.id;
             var axios = _ref5.axios;
 
-            var createPromise = axios.put($BASE + ('/tasks/' + id + '/uncomplete.json')).then(function (res) {
+            var createPromise = axios.put('/tasks/' + id + '/uncomplete.json').then(function (res) {
                 var data = res.data;
                 return {
                     id: id,
@@ -141,7 +141,7 @@ var mutation = {
             var id = _ref6.id;
             var axios = _ref7.axios;
 
-            var createPromise = axios.delete($BASE + ('/tasks/' + id + '.json')).then(function (res) {
+            var createPromise = axios.delete('/tasks/' + id + '.json').then(function (res) {
                 var data = res.data;
                 return {
                     id: id,
