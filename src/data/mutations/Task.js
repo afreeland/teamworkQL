@@ -57,6 +57,12 @@ const mutation = {
                 // We do not need to include the actual tasklistId in the payload
                 delete task.tasklistId;
 
+                // Handle date field formats with hyphen
+                if (task.dueDate)
+                    task['due-date'] = task.dueDate;
+                if (task.startDate)
+                    task['start-date'] = task.startDate;
+
                 let payload = {
                     "todo-item": task
                 };
