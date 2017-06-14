@@ -25,7 +25,7 @@ const mutation = {
                 progress: { type: GraphQLInt },
 
                 notify: { type: GraphQLBoolean },
-                responsiblePartyId: { type: GraphQLInt },
+                responsiblePartyId: { type: GraphQLString },
                 // TODO
                 // Format YYYYMMDD
                 startDate: { type: GraphQLString },
@@ -57,11 +57,13 @@ const mutation = {
                 // We do not need to include the actual tasklistId in the payload
                 delete task.tasklistId;
 
-                // Handle date field formats with hyphen
+                // Handle hyphenated fields from camelCase
                 if (task.dueDate)
                     task['due-date'] = task.dueDate;
                 if (task.startDate)
                     task['start-date'] = task.startDate;
+                if (task.responsiblePartyId) 
+                    task['responsible-party-id'] = task.responsiblePartyId;
 
                 let payload = {
                     "todo-item": task
